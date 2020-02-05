@@ -13,7 +13,7 @@
 
 ## Overview
 
-**This package provides an libraries and utilities used by Mbed OS tooling.**
+**This package provides a library of common code shared by Mbed OS tooling packages.**
 
 It is expected that this package will be used by developers of Mbed OS tooling rather than by users of Mbed OS. For
 a command line interface for Mbed OS please see the package [mbed-tools](https://github.com/ARMmbed/mbed-tools).
