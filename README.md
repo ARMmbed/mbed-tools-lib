@@ -1,4 +1,4 @@
-# mbed-tools-lib
+# Mbed Tools Library
 
 ![Package](https://img.shields.io/badge/Package-mbed--tools--lib-lightgrey)
 [![Documentation](https://img.shields.io/badge/Documentation-GitHub_Pages-blue)](https://armmbed.github.io/mbed-tools-lib)
