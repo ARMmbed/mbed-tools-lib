@@ -1,6 +1,6 @@
 # mbed-tools-lib
 
-![Package](https://img.shields.io/badge/Package-mbed-tools-lib-lightgrey)
+![Package](https://img.shields.io/badge/Package-mbed--tools--lib-lightgrey)
 [![Documentation](https://img.shields.io/badge/Documentation-GitHub_Pages-blue)](https://armmbed.github.io/mbed-tools-lib)
 [![PyPI](https://img.shields.io/pypi/v/mbed-tools-lib)](https://pypi.org/project/mbed-tools-lib/)
 [![PyPI - Status](https://img.shields.io/pypi/status/mbed-tools-lib)](https://pypi.org/project/mbed-tools-lib/)
