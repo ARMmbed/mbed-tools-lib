@@ -12,7 +12,7 @@ coverage:
         target: auto
         threshold: 2%
         base: auto 
-       # advanced
+        # advanced
         branches: 
           - master
         if_not_found: success
