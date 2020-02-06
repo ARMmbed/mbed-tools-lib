@@ -11,3 +11,24 @@ beta releases are not included in this history. For a full list of all releases,
 [PyPI Release History](https://pypi.org/project/mbed-tools-lib/#history).
 
 [//]: # (begin_release_notes)
+
+"1.0.0" (2020-02-06)
+====================
+
+Major changes
+-------------
+
+- Initial release. (#1)
+
+
+Features
+--------
+
+- Add a base exception class. (#2)
+- Add logging helper functions. (#3)
+
+
+Misc
+----
+
+- #20200205, #20200206, #202002052, #202002053, #202002062

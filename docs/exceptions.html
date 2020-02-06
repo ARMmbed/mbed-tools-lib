@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.7.4" />
-<title>mbed_tools_lib API documentation</title>
-<meta name="description" content="Exposes the primary interfaces for the library." />
+<title>mbed_tools_lib.exceptions API documentation</title>
+<meta name="description" content="Exceptions raised by mbed tools." />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
@@ -17,37 +17,50 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>mbed_tools_lib</code></h1>
+<h1 class="title">Module <code>mbed_tools_lib.exceptions</code></h1>
 </header>
 <section id="section-intro">
-<p>Exposes the primary interfaces for the library.</p>
+<p>Exceptions raised by mbed tools.</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">&#34;&#34;&#34;Exposes the primary interfaces for the library.&#34;&#34;&#34;
+<pre><code class="python">&#34;&#34;&#34;Exceptions raised by mbed tools.&#34;&#34;&#34;
 
-from mbed_tools_lib._version import __version__</code></pre>
+
+class ToolsError(Exception):
+    &#34;&#34;&#34;Base class for tools errors.&#34;&#34;&#34;</code></pre>
 </details>
 </section>
 <section>
-<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt><code class="name"><a title="mbed_tools_lib.exceptions" href="exceptions.html">mbed_tools_lib.exceptions</a></code></dt>
+<dt id="mbed_tools_lib.exceptions.ToolsError"><code class="flex name class">
+<span>class <span class="ident">ToolsError</span></span>
+<span>(</span><span>...)</span>
+</code></dt>
 <dd>
-<section class="desc"><p>Exceptions raised by mbed tools.</p></section>
-</dd>
-<dt><code class="name"><a title="mbed_tools_lib.logging" href="logging.html">mbed_tools_lib.logging</a></code></dt>
-<dd>
-<section class="desc"><p>Helpers for logging errors according to severity of the exception.</p></section>
+<section class="desc"><p>Base class for tools errors.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ToolsError(Exception):
+    &#34;&#34;&#34;Base class for tools errors.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
 </dd>
 </dl>
-</section>
-<section>
-</section>
-<section>
-</section>
-<section>
 </section>
 </article>
 <nav id="sidebar">
@@ -56,10 +69,16 @@ from mbed_tools_lib._version import __version__</code></pre>
 <ul></ul>
 </div>
 <ul id="index">
-<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<li><h3>Super-module</h3>
 <ul>
-<li><code><a title="mbed_tools_lib.exceptions" href="exceptions.html">mbed_tools_lib.exceptions</a></code></li>
-<li><code><a title="mbed_tools_lib.logging" href="logging.html">mbed_tools_lib.logging</a></code></li>
+<li><code><a title="mbed_tools_lib" href="index.html">mbed_tools_lib</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="mbed_tools_lib.exceptions.ToolsError" href="#mbed_tools_lib.exceptions.ToolsError">ToolsError</a></code></h4>
+</li>
 </ul>
 </li>
 </ul>

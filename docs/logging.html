@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.7.4" />
-<title>mbed_tools_lib API documentation</title>
-<meta name="description" content="Exposes the primary interfaces for the library." />
+<title>mbed_tools_lib.logging API documentation</title>
+<meta name="description" content="Helpers for logging errors according to severity of the exception." />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
@@ -17,35 +17,114 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>mbed_tools_lib</code></h1>
+<h1 class="title">Module <code>mbed_tools_lib.logging</code></h1>
 </header>
 <section id="section-intro">
-<p>Exposes the primary interfaces for the library.</p>
+<p>Helpers for logging errors according to severity of the exception.</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">&#34;&#34;&#34;Exposes the primary interfaces for the library.&#34;&#34;&#34;
+<pre><code class="python">&#34;&#34;&#34;Helpers for logging errors according to severity of the exception.&#34;&#34;&#34;
+import logging
 
-from mbed_tools_lib._version import __version__</code></pre>
+LOGGING_FORMAT = &#34;%(levelname)s: %(message)s&#34;
+
+
+def log_exception(logger: logging.Logger, exception: Exception) -&gt; None:
+    &#34;&#34;&#34;Logs an exception in both normal and verbose forms.
+
+    Args:
+        logger: logger
+        exception: exception to log
+    &#34;&#34;&#34;
+    logger.error(exception)
+    logger.debug(exception, exc_info=True)
+
+
+def set_log_level(verbose_count: int) -&gt; None:
+    &#34;&#34;&#34;Sets the log level.
+
+    Args:
+        verbose_count: number of `-v` flags used
+    &#34;&#34;&#34;
+    if verbose_count &gt; 2:
+        log_level = logging.DEBUG
+    elif verbose_count == 2:
+        log_level = logging.INFO
+    elif verbose_count == 1:
+        log_level = logging.WARNING
+    else:
+        log_level = logging.ERROR
+    logging.basicConfig(level=log_level, format=LOGGING_FORMAT)</code></pre>
 </details>
 </section>
 <section>
-<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt><code class="name"><a title="mbed_tools_lib.exceptions" href="exceptions.html">mbed_tools_lib.exceptions</a></code></dt>
+<dt id="mbed_tools_lib.logging.log_exception"><code class="name flex">
+<span>def <span class="ident">log_exception</span></span>(<span>logger: logging.Logger, exception: Exception) -> NoneType</span>
+</code></dt>
 <dd>
-<section class="desc"><p>Exceptions raised by mbed tools.</p></section>
+<section class="desc"><p>Logs an exception in both normal and verbose forms.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>logger</code></strong></dt>
+<dd>logger</dd>
+<dt><strong><code>exception</code></strong></dt>
+<dd>exception to log</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def log_exception(logger: logging.Logger, exception: Exception) -&gt; None:
+    &#34;&#34;&#34;Logs an exception in both normal and verbose forms.
+
+    Args:
+        logger: logger
+        exception: exception to log
+    &#34;&#34;&#34;
+    logger.error(exception)
+    logger.debug(exception, exc_info=True)</code></pre>
+</details>
 </dd>
-<dt><code class="name"><a title="mbed_tools_lib.logging" href="logging.html">mbed_tools_lib.logging</a></code></dt>
+<dt id="mbed_tools_lib.logging.set_log_level"><code class="name flex">
+<span>def <span class="ident">set_log_level</span></span>(<span>verbose_count: int) -> NoneType</span>
+</code></dt>
 <dd>
-<section class="desc"><p>Helpers for logging errors according to severity of the exception.</p></section>
+<section class="desc"><p>Sets the log level.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>verbose_count</code></strong></dt>
+<dd>number of <code>-v</code> flags used</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_log_level(verbose_count: int) -&gt; None:
+    &#34;&#34;&#34;Sets the log level.
+
+    Args:
+        verbose_count: number of `-v` flags used
+    &#34;&#34;&#34;
+    if verbose_count &gt; 2:
+        log_level = logging.DEBUG
+    elif verbose_count == 2:
+        log_level = logging.INFO
+    elif verbose_count == 1:
+        log_level = logging.WARNING
+    else:
+        log_level = logging.ERROR
+    logging.basicConfig(level=log_level, format=LOGGING_FORMAT)</code></pre>
+</details>
 </dd>
 </dl>
-</section>
-<section>
-</section>
-<section>
 </section>
 <section>
 </section>
@@ -56,10 +135,15 @@ from mbed_tools_lib._version import __version__</code></pre>
 <ul></ul>
 </div>
 <ul id="index">
-<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<li><h3>Super-module</h3>
 <ul>
-<li><code><a title="mbed_tools_lib.exceptions" href="exceptions.html">mbed_tools_lib.exceptions</a></code></li>
-<li><code><a title="mbed_tools_lib.logging" href="logging.html">mbed_tools_lib.logging</a></code></li>
+<li><code><a title="mbed_tools_lib" href="index.html">mbed_tools_lib</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="mbed_tools_lib.logging.log_exception" href="#mbed_tools_lib.logging.log_exception">log_exception</a></code></li>
+<li><code><a title="mbed_tools_lib.logging.set_log_level" href="#mbed_tools_lib.logging.set_log_level">set_log_level</a></code></li>
 </ul>
 </li>
 </ul>
