@@ -1,11 +1,7 @@
 import logging
 from unittest import TestCase, mock
 
-from mbed_tools_lib.logging import (
-    log_exception,
-    set_log_level,
-    LOGGING_FORMAT,
-)
+from mbed_tools_lib.logging import log_exception, set_log_level, LOGGING_FORMAT
 
 
 class TestLogException(TestCase):
@@ -23,24 +19,16 @@ class TestLogException(TestCase):
 class TestSetLogLevel(TestCase):
     def test_debug(self, mocked_logging):
         set_log_level(verbose_count=3)
-        mocked_logging.basicConfig.assert_called_once_with(
-            level=mocked_logging.DEBUG, format=LOGGING_FORMAT
-        )
+        mocked_logging.basicConfig.assert_called_once_with(level=mocked_logging.DEBUG, format=LOGGING_FORMAT)
 
     def test_info(self, mocked_logging):
         set_log_level(verbose_count=2)
-        mocked_logging.basicConfig.assert_called_once_with(
-            level=mocked_logging.INFO, format=LOGGING_FORMAT
-        )
+        mocked_logging.basicConfig.assert_called_once_with(level=mocked_logging.INFO, format=LOGGING_FORMAT)
 
     def test_warning(self, mocked_logging):
         set_log_level(verbose_count=1)
-        mocked_logging.basicConfig.assert_called_once_with(
-            level=mocked_logging.WARNING, format=LOGGING_FORMAT
-        )
+        mocked_logging.basicConfig.assert_called_once_with(level=mocked_logging.WARNING, format=LOGGING_FORMAT)
 
     def test_error(self, mocked_logging):
         set_log_level(verbose_count=0)
-        mocked_logging.basicConfig.assert_called_once_with(
-            level=mocked_logging.ERROR, format=LOGGING_FORMAT
-        )
+        mocked_logging.basicConfig.assert_called_once_with(level=mocked_logging.ERROR, format=LOGGING_FORMAT)
