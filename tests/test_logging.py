@@ -5,14 +5,21 @@ from mbed_tools_lib.logging import log_exception, set_log_level, LOGGING_FORMAT
 
 
 class TestLogException(TestCase):
-    def test_log_exception_error(self):
+    def test_log_error(self):
         mock_logger = mock.Mock(spec_set=logging.Logger)
         mock_exception = mock.Mock(spec_set=Exception)
 
         log_exception(mock_logger, mock_exception)
 
-        mock_logger.error.assert_called_once_with(mock_exception)
-        mock_logger.debug.assert_called_once_with(mock_exception, exc_info=True)
+        mock_logger.error.assert_called_once_with(mock_exception, exc_info=False)
+
+    def test_log_error_with_traceback(self):
+        mock_logger = mock.Mock(spec_set=logging.Logger)
+        mock_exception = mock.Mock(spec_set=Exception)
+
+        log_exception(mock_logger, mock_exception, True)
+
+        mock_logger.error.assert_called_once_with(mock_exception, exc_info=True)
 
 
 @mock.patch("mbed_tools_lib.logging.logging", return_value=mock.Mock(spec_set=logging))

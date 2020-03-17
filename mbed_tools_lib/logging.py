@@ -4,15 +4,15 @@ import logging
 LOGGING_FORMAT = "%(levelname)s: %(message)s"
 
 
-def log_exception(logger: logging.Logger, exception: Exception) -> None:
+def log_exception(logger: logging.Logger, exception: Exception, show_traceback: bool = False) -> None:
     """Logs an exception in both normal and verbose forms.
 
     Args:
         logger: logger
         exception: exception to log
+        show_traceback: show the full traceback.
     """
-    logger.error(exception)
-    logger.debug(exception, exc_info=True)
+    logger.error(exception, exc_info=show_traceback)
 
 
 def set_log_level(verbose_count: int) -> None:
