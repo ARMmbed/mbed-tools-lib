@@ -34,7 +34,7 @@ setup(
     description="A library of shared Mbed tools functionality.",
     keywords="Arm Mbed OS MbedOS Arm Mbed OS MbedOS Arm Mbed OS MbedOS Mbed OS lib",
     include_package_data=True,
-    install_requires=["python-dotenv"],
+    install_requires=["python-dotenv", "dataclasses; python_version<'3.7'"],
     license="Apache 2.0",
     long_description_content_type="text/markdown",
     long_description=long_description,
