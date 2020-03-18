@@ -1,1 +1,0 @@
-Added a traceback parameter to log_exception

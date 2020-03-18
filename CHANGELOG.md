@@ -12,6 +12,23 @@ beta releases are not included in this history. For a full list of all releases,
 
 [//]: # (begin_release_notes)
 
+"1.1.0" (2020-03-18)
+====================
+"" "1.1.0" (2020-03-18)
+=======================
+
+Features
+--------
+
+- Added a traceback parameter to log_exception (#20200318)
+
+
+Misc
+----
+
+- #20200210, #202002102
+
+
 "1.0.0" (2020-02-06)
 ====================
 
