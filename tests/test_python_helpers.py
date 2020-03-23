@@ -1,3 +1,7 @@
+#
+# Copyright (C) 2020 Arm Mbed. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
 import unittest
 
 from mbed_tools_lib.python_helpers import minimum_python_version, named_tuple_with_defaults
