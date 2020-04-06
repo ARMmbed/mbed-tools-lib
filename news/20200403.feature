@@ -1,0 +1,1 @@
+Add context manager for handling tools errors and generate a user friendly message about increasing verbosity

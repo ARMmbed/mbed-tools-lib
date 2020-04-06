@@ -29,7 +29,7 @@ stages:
             Linux_Py_3_6:
               python.version: '3.6'
               vmImageName: ubuntu-latest
-              uploadCoverage: "false"
+              uploadCoverage: "true"
 
             Linux_Py_3_7:
               python.version: '3.7'
