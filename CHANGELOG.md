@@ -12,6 +12,36 @@ beta releases are not included in this history. For a full list of all releases,
 
 [//]: # (begin_release_notes)
 
+"1.2.0" (2020-04-06)
+====================
+"" "1.2.0" (2020-04-06)
+=======================
+
+Features
+--------
+
+- Added helpers with regards to python features/concepts. (#20200304)
+- Add context manager for handling tools errors and generate a user friendly message about increasing verbosity (#20200403)
+
+
+Bugfixes
+--------
+
+- Fixed pre-commit configuration (#20200323)
+
+
+Improved Documentation
+----------------------
+
+- Added licence notice (#20200319)
+
+
+Misc
+----
+
+- #20200402
+
+
 "1.1.0" (2020-03-18)
 ====================
 "" "1.1.0" (2020-03-18)

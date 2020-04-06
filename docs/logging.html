@@ -1,3 +1,7 @@
+<!--
+-- Copyright (C) 2020 Arm Mbed. All rights reserved.
+-- SPDX-License-Identifier: Apache-2.0
+-->
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,10 +29,63 @@
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">&#34;&#34;&#34;Helpers for logging errors according to severity of the exception.&#34;&#34;&#34;
+<pre><code class="python">#
+# Copyright (C) 2020 Arm Mbed. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+&#34;&#34;&#34;Helpers for logging errors according to severity of the exception.&#34;&#34;&#34;
+from typing import Type, Optional, cast
+from types import TracebackType
 import logging
+from mbed_tools_lib.exceptions import ToolsError
 
 LOGGING_FORMAT = &#34;%(levelname)s: %(message)s&#34;
+
+VERBOSITY_HELP = {
+    logging.CRITICAL: &#34;-v&#34;,
+    logging.ERROR: &#34;-v&#34;,
+    logging.WARNING: &#34;-vv&#34;,
+    logging.INFO: &#34;-vvv&#34;,
+    logging.DEBUG: &#34;--traceback&#34;,
+}
+
+
+def _exception_message(err: BaseException, log_level: int, traceback: bool) -&gt; str:
+    &#34;&#34;&#34;Generate a user facing message with help on how to get more information from the logs.&#34;&#34;&#34;
+    error_msg = str(err)
+    if log_level != logging.DEBUG or not traceback:
+        cli_option = VERBOSITY_HELP.get(log_level, &#34;-v&#34;)
+        error_msg += f&#34;\n\nMore information may be available by using the command line option &#39;{cli_option}&#39;.&#34;
+    return error_msg
+
+
+class MbedToolsHandler:
+    &#34;&#34;&#34;Context Manager to catch Mbed Tools exceptions and generate a helpful user facing message.&#34;&#34;&#34;
+
+    def __init__(self, logger: logging.Logger, traceback: bool = False):
+        &#34;&#34;&#34;Keep track of the logger to use and whether or not a traceback should be generated.&#34;&#34;&#34;
+        self._logger = logger
+        self._traceback = traceback
+
+    def __enter__(self) -&gt; &#34;MbedToolsHandler&#34;:
+        &#34;&#34;&#34;Return the Context Manager.&#34;&#34;&#34;
+        return self
+
+    def __exit__(
+        self,
+        exc_type: Optional[Type[BaseException]],
+        exc_value: Optional[BaseException],
+        exc_traceback: Optional[TracebackType],
+    ) -&gt; bool:
+        &#34;&#34;&#34;Handle any raised exceptions, suppressing Tools errors and generating an error message instead.&#34;&#34;&#34;
+        if exc_type and issubclass(exc_type, ToolsError):
+            error_msg = _exception_message(cast(BaseException, exc_value), logging.root.level, self._traceback)
+            self._logger.error(error_msg, exc_info=self._traceback)
+            # Do not propagate exceptions derived from ToolsError
+            return True
+
+        # Propagate all other exceptions
+        return False
 
 
 def log_exception(logger: logging.Logger, exception: Exception, show_traceback: bool = False) -&gt; None:
@@ -129,6 +186,49 @@ def set_log_level(verbose_count: int) -&gt; None:
 </dl>
 </section>
 <section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="mbed_tools_lib.logging.MbedToolsHandler"><code class="flex name class">
+<span>class <span class="ident">MbedToolsHandler</span></span>
+<span>(</span><span>logger: logging.Logger, traceback: bool = False)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Context Manager to catch Mbed Tools exceptions and generate a helpful user facing message.</p>
+<p>Keep track of the logger to use and whether or not a traceback should be generated.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MbedToolsHandler:
+    &#34;&#34;&#34;Context Manager to catch Mbed Tools exceptions and generate a helpful user facing message.&#34;&#34;&#34;
+
+    def __init__(self, logger: logging.Logger, traceback: bool = False):
+        &#34;&#34;&#34;Keep track of the logger to use and whether or not a traceback should be generated.&#34;&#34;&#34;
+        self._logger = logger
+        self._traceback = traceback
+
+    def __enter__(self) -&gt; &#34;MbedToolsHandler&#34;:
+        &#34;&#34;&#34;Return the Context Manager.&#34;&#34;&#34;
+        return self
+
+    def __exit__(
+        self,
+        exc_type: Optional[Type[BaseException]],
+        exc_value: Optional[BaseException],
+        exc_traceback: Optional[TracebackType],
+    ) -&gt; bool:
+        &#34;&#34;&#34;Handle any raised exceptions, suppressing Tools errors and generating an error message instead.&#34;&#34;&#34;
+        if exc_type and issubclass(exc_type, ToolsError):
+            error_msg = _exception_message(cast(BaseException, exc_value), logging.root.level, self._traceback)
+            self._logger.error(error_msg, exc_info=self._traceback)
+            # Do not propagate exceptions derived from ToolsError
+            return True
+
+        # Propagate all other exceptions
+        return False</code></pre>
+</details>
+</dd>
+</dl>
 </section>
 </article>
 <nav id="sidebar">
@@ -146,6 +246,13 @@ def set_log_level(verbose_count: int) -&gt; None:
 <ul class="">
 <li><code><a title="mbed_tools_lib.logging.log_exception" href="#mbed_tools_lib.logging.log_exception">log_exception</a></code></li>
 <li><code><a title="mbed_tools_lib.logging.set_log_level" href="#mbed_tools_lib.logging.set_log_level">set_log_level</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="mbed_tools_lib.logging.MbedToolsHandler" href="#mbed_tools_lib.logging.MbedToolsHandler">MbedToolsHandler</a></code></h4>
+</li>
 </ul>
 </li>
 </ul>
