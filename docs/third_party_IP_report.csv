@@ -1,0 +1,3 @@
+Compliance, Name,Is a dependency?,URL,Licence,Details
+True,mbed-tools-lib,False,https://github.com/ARMmbed/mbed-tools-lib,Apache-2.0,Licence is compliant.
+True,python-dotenv,True,http://github.com/theskumar/python-dotenv,Unknown,Package's licence manually checked: BSD-3-Clause

@@ -1,0 +1,23 @@
+                                3rd party IP report for mbed-tools-lib
+
+                                         2020-04-27 15:00:13.067927
+
+# Summary:
+    Licence compliance: Compliant
+    Details: Project [mbed-tools-lib]'s licence is compliant: Apache-2.0.All its dependencies are also compliant licence-wise.
+
+# More details:
+
+- mbed-tools-lib:
+    [X] Compliant?
+    [] Dependency?
+    URL: https://github.com/ARMmbed/mbed-tools-lib
+    Licence: Apache-2.0
+    Licence compliance: Licence is compliant.
+
+- python-dotenv:
+    [X] Compliant?
+    [X] Dependency?
+    URL: http://github.com/theskumar/python-dotenv
+    Licence: Unknown
+    Licence compliance: Package's licence manually checked: BSD-3-Clause

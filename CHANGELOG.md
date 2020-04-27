@@ -12,6 +12,21 @@ beta releases are not included in this history. For a full list of all releases,
 
 [//]: # (begin_release_notes)
 
+"1.2.1" (2020-04-27)
+====================
+
+Bugfixes
+--------
+
+- Checked 3rd-party licences. (#20200427)
+
+
+Misc
+----
+
+- #20200420, #20200427
+
+
 "1.2.0" (2020-04-06)
 ====================
 
