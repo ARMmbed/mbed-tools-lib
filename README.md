@@ -9,7 +9,7 @@
 [![License](https://badgen.net/pypi/license/mbed-tools-lib)](https://github.com/ARMmbed/mbed-tools-lib/blob/master/LICENSE)
 [![Compliance](https://badgen.net/badge/License%20Report/compliant/green?icon=libraries)](https://armmbed.github.io/mbed-tools-lib/third_party_IP_report.html)
 
-[![Build Status](https://dev.azure.com/mbed-tools/mbed-tools-lib/_apis/build/status/Build%20and%20Release?branchName=master&stageName=CI%20Checkpoint)](https://dev.azure.com/mbed-tools/mbed-tools-lib/_build/latest?definitionId=1&branchName=master)
+[![Build Status](https://dev.azure.com/mbed-tools/mbed-tools-lib/_apis/build/status/Build%20and%20Release?branchName=master&stageName=CI%20Checkpoint)](https://dev.azure.com/mbed-tools/mbed-tools-lib/_build/latest?definitionId=9&branchName=master)
 [![Test Coverage](https://codecov.io/gh/ARMmbed/mbed-tools-lib/branch/master/graph/badge.svg)](https://codecov.io/gh/ARMmbed/mbed-tools-lib)
 [![Maintainability](https://api.codeclimate.com/v1/badges/18c13e9ee7ba963c81e9/maintainability)](https://codeclimate.com/github/ARMmbed/mbed-tools-lib/maintainability)
 
