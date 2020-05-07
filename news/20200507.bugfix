@@ -1,0 +1,1 @@
+Store return code as an attribute in ToolsHandler context manager.
